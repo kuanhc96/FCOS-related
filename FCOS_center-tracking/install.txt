@@ -1,0 +1,14 @@
+# CUDA 10.1, pytorch 1.4
+conda create --name FCOS
+conda activate FCOS
+conda install ipython
+pip install ninja yacs cython matplotlib tqdm
+conda install -c anaconda cudatoolkit
+conda install -c conda-forge nvcc_linux-64
+export CUDA_HOME=/usr/local/cuda
+PATH=/usr/local/cuda-10.1/bin${PATH:+:${PATH}}$
+export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+conda install pytorch=1.4 torchvision -c pytorch
+
+# USAGE
+# python FCOS_L2_tracker.py --model FCOS_imprv_R_50_FPN_1x.pth --video path/to/video.mp4 --config fcos_imprv_R_50_FPN_1x.yaml
